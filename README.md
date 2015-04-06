@@ -16,9 +16,9 @@ You need git to clone the angular-seed repository. You can get git from
 We also use a number of node.js tools to initialize and test angular-seed. You must have node.js and
 its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
 
-### Clone angular-seed
+### Clone the project
 
-Clone the angular-seed repository using [git][git]:
+Clone repository using [git]:
 
 ```
 git clone https://github.com/epezhman/angular.git
