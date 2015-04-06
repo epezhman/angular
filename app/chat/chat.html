@@ -26,7 +26,7 @@
 <!-- Chat Section -->
 <section id="chat">
     <div class="container">
-        <div ng-repeat="message in ctrl.messages | orderBy:ctrl.sortoder">"
+        <div ng-repeat="message in ctrl.messages | orderBy:ctrl.sortoder">
             <div ng-if="message.email == ctrl.currentEmail">
                 <message_sent message="message" update="ctrl.updateMessage(message)" remove="ctrl.removeMessage(message)"/>
             </div>
