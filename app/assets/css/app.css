@@ -1,0 +1,128 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.arrow_box_left {
+    position: relative;
+    background: #e3e5e6;
+    border: 1px solid #e3e5e6;
+    border-bottom: 0 none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.46);
+}
+
+@media (min-width: 767px) {
+    .arrow_box_left:after, .arrow_box_left:before {
+        right: 100%;
+        top: 45px;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .arrow_box_left:after {
+        border-color: rgba(227, 229, 230, 0);
+        border-right-color: #e3e5e6;
+        border-width: 15px;
+        margin-top: -15px;
+    }
+
+    .arrow_box_left:before {
+        border-color: rgba(227, 229, 230, 0);
+        border-right-color: #e3e5e6;
+        border-width: 16px;
+        margin-top: -16px;
+    }
+}
+
+.arrow_box_right {
+    position: relative;
+    background: #EBEFFB;
+    border: 1px solid #EBEFFB;
+    border-bottom: 0 none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.46);
+}
+
+@media (min-width: 767px) {
+    .arrow_box_right:after, .arrow_box_right:before {
+        left: 100%;
+        top: 45px;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .arrow_box_right:after {
+        border-color: rgba(227, 229, 230, 0);
+        border-left-color: #EBEFFB;
+        border-width: 15px;
+        margin-top: -15px;
+    }
+
+    .arrow_box_right:before {
+        border-color: rgba(227, 229, 230, 0);
+        border-left-color: #EBEFFB;
+        border-width: 16px;
+        margin-top: -16px;
+    }
+
+}
+
+.chat-text-container {
+    padding: 2px;
+    min-height: 50px;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.chat-row-wrapper {
+    margin-top: 30px;
+}
+
+#send {
+    padding: 30px 0 0 0;
+}
+
+#chat {
+    padding: 10px 0 100px 0;
+}
+
+.edit input[type=text] {
+    border: 1px solid transparent;
+    width: 100%;
+    resize: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    padding: 5px;
+    font-size: large;
+}
+
+.edit input[type=text]:hover,
+.edit input[type=text]:focus {
+    border: 1px solid #444545;
+    outline: none
+}
+
+input.ng-invalid.ng-dirty[type="text"],
+input.ng-invalid.ng-dirty[type="email"] {
+    background-color: pink;
+}
+
+.message-name{
+    padding: 5px;
+    font-size: small;
+}
+
+.message-text{
+    padding: 5px;
+    font-size: larger;
+}

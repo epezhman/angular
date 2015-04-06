@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Angular Chat</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/app.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" class="index" ng-cloak ng-controller="appController as appCtrl">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#page-top">Angular Chat</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li class="page-scroll" ng-hide="logedIn">
+                    <a href="#/join">Join</a>
+                </li>
+                <li class="page-scroll" ng-show="logedIn">
+                    <a href="#/chat">Chat</a>
+                </li>
+                <li class="page-scroll" ng-show="logedIn">
+                    <a ng-click="logOut()" href="javascript:void(0);">Log Out</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="assets/img/slide-image-5.png" alt="">
+
+                <div class="intro-text">
+                    <span class="name">Angular Real-time Chat</span>
+                    <hr class="star-light">
+                    <span class="skills">Simple - Powerful - Awesome!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div ng-view></div>
+
+
+<!-- About Section -->
+<section class="success" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>About</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-2">
+                <p>An easy way to chat with whoever interested in Angular. Just join and get connected!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col col-md-5">
+                    <h3>Creators</h3>
+
+                    <p>
+                        Pezhman Nasirifard | Max Zitzmann
+                    </p>
+                </div>
+                <div class="footer-col col-md-5 col-md-offset-2">
+                    <h3>Angular Real-time Chat</h3>
+
+                    <p>A chat room application made by AngularJS for JavaScript Technology Seminar SS2015.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-below">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    Copyright &copy; TU München 2015
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.js"></script>
+
+
+<script src="main/app.js"></script>
+<script src="main/filter.js"></script>
+<script src="main/services.js"></script>
+
+<script src="join/join.js"></script>
+<script src="chat/chat.js"></script>
+<script src="chat/chat_directives.js"></script>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

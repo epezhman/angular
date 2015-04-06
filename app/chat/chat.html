@@ -1,0 +1,44 @@
+<!-- Send Section -->
+<section id="send">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form ng-submit="ctrl.addMessage(chatMessageForm)" name="chatMessageForm">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="input-group input-group-lg">
+                                <input type="text" class="form-control" placeholder="Message" id="message" required
+                                       ng-model="ctrl.newMessage.message">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary"
+                                            ng-disabled="chatMessageForm.$invalid">Send
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Chat Section -->
+<section id="chat">
+    <div class="container">
+        <div ng-repeat="message in ctrl.messages | orderBy:ctrl.sortoder">"
+            <div ng-if="message.email == ctrl.currentEmail">
+                <message_sent message="message" update="ctrl.updateMessage(message)" remove="ctrl.removeMessage(message)"/>
+            </div>
+            <div ng-if="message.email != ctrl.currentEmail">
+                <message_received message="message" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="scroll-top page-scroll">
+    <a class="btn btn-primary" ng-click="ctrl.scrollUp()">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>

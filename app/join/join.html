@@ -1,0 +1,49 @@
+<!-- Join Section -->
+<section id="join">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Join Chat</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-1">
+                <form name="joinChatForm" id="chatForm">
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Name" id="name" required
+                                   ng-model="ctrl.joinInfo.name">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control"
+                                   placeholder="Email Address (Preferably linked to Gravatar)" id="email" required
+                                   ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/"
+                                   ng-model="ctrl.joinInfo.email">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit" class="btn btn-success btn-lg"
+                                    ng-disabled="joinChatForm.$invalid"
+                                    ng-click="ctrl.joinChat(ctrl.joinInfo, joinChatForm)">Join
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-xs-2">
+                <img ng-src="{{ctrl.getGravatarUrl(ctrl.joinInfo.email)}}" class="img-responsive img-circle">
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,49 @@
+<div class="chat-row-wrapper">
+    <div class="row">
+        <div class="col-lg-8  col-lg-offset-2">
+            <div class="row">
+                <div class="col-xs-9 col-sm-10">
+                    <div class="arrow_box arrow_box_right">
+                        <div class="chat-text-container">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <div style="float: left;">
+                                        <button type="button" class="btn btn-link"
+                                                ng-click="remove()"><span
+                                                class="glyphicon glyphicon-remove"
+                                                aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 edit">
+                                    <input type="text" ng-model="message.message"
+                                           ng-change="update()"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div style="float: right;">
+                                        <div class="inline" ng-show="message.edited">
+                                            Edited |
+                                        </div>
+                                        <div class="inline">
+                                            {{message.create_datetime|timeAgo|date:'medium'}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-2">
+                    <div>
+                        <img ng-src="{{getGravatarUrl(message.email)}}" class="img-responsive img-circle"
+                             align="middle">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
