@@ -8,24 +8,24 @@ var chatModule = angular.module('chatApp.chat', ['ngRoute', 'firebase'])
             controller: 'ChatCtrl',
             controllerAs: 'ctrl',
             resolve: {
-                check: function (joinService) {
-                    joinService.checkedLoggedIn();
+                check: function (loginService) {
+                    loginService.checkedLoggedIn();
                 }
             }
         });
     }])
-    .controller('ChatCtrl', function (MessageService, $anchorScroll, joinService) {
+    .controller('ChatCtrl', function (MessageService, $anchorScroll, loginService) {
         var vm = this;
 
         vm.newMessage = {name: '', email: '', message: '', create_datetime: '', edited:false};
         vm.messages = MessageService.getMessages();
         vm.sortoder = '-create_datetime';
-        vm.currentEmail = joinService.getUser().email;
+        vm.currentEmail = loginService.getUser().email;
 
         vm.addMessage = function (chatMessageForm) {
             if (chatMessageForm.$valid) {
-                vm.newMessage.email = joinService.getUser().email;
-                vm.newMessage.name = joinService.getUser().name;
+                vm.newMessage.email = loginService.getUser().email;
+                vm.newMessage.name = loginService.getUser().name;
                 MessageService.addMessage(angular.copy(vm.newMessage));
                 vm.newMessage = {name: '', email: '', message: '', create_datetime: '', edited:false};
                 chatMessageForm.$setPristine();
@@ -46,7 +46,7 @@ var chatModule = angular.module('chatApp.chat', ['ngRoute', 'firebase'])
         };
 
     })
-    .service('MessageService', function ($firebaseArray, FIREBASE_URI, joinService) {
+    .service('MessageService', function ($firebaseArray, FIREBASE_URI, loginService) {
         var service = this;
         var ref = new Firebase(FIREBASE_URI);
         var messages = $firebaseArray(ref);

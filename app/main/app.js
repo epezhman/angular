@@ -3,24 +3,25 @@
 // Declare app level module which depends on views, and components
 var chatApp = angular.module('chatApp', [
     'ngRoute',
-    'chatApp.join',
+    'chatApp.login',
+    'chatApp.register',
     'chatApp.chat',
     'ngCookies'
 ])
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.otherwise({redirectTo: '/join'});
+        $routeProvider.otherwise({redirectTo: '/login'});
     }])
-    .controller('appController', ['$scope', '$cookieStore', 'joinService', function ($scope, $cookieStore, joinService) {
-        $scope.logedIn = joinService.getUser();
+    .controller('appController', ['$scope', '$cookieStore', 'loginService', function ($scope, $cookieStore, loginService) {
+        $scope.logedIn = loginService.getUser();
 
         $scope.logOut = function () {
-            joinService.leaveChat();
+            loginService.leaveChat();
             $scope.logedIn = false;
         }
 
         $scope.$watch(function () {
-            return joinService.watcher();
+            return loginService.watcher();
         }, function (newValue) {
-            $scope.logedIn = joinService.getUser();
+            $scope.logedIn = loginService.getUser();
         });
     }]);

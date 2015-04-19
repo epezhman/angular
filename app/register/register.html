@@ -1,0 +1,63 @@
+<!-- Register Section -->
+<section id="register">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Register</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-1">
+                <form name="registerForm" id="registerForm">
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control"
+                                   placeholder="Email Address (Preferably linked to Gravatar)" id="email" required
+                                   ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/"
+                                   ng-model="ctrl.register.email">
+
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Password</label>
+                            <input type="password" class="form-control"
+                                   placeholder="Your password"
+                                   id="password" required
+                                   ng-model="ctrl.register.password">
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Password</label>
+                            <input type="password" class="form-control"
+                                   placeholder="Confirm password"
+                                   id="passwordConfirm" required
+                                   ng-model="ctrl.register.passwordConfirm"
+                                   compare-to="ctrl.register.password">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit" class="btn btn-success btn-lg"
+                                    ng-disabled="registerForm.$invalid"
+                                    ng-click="ctrl.loginChat(ctrl.register, registerForm)">Register
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+           <!-- <div class="col-sm-2">
+                <img ng-src="{{ctrl.getGravatarUrl(ctrl.loginInfo.email)}}" class="img-responsive img-circle"
+                     style="margin-left:60px ">
+            </div>-->
+        </div>
+    </div>
+</section>

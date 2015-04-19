@@ -51,7 +51,10 @@
                     <a href="#page-top"></a>
                 </li>
                 <li class="page-scroll" ng-hide="logedIn">
-                    <a href="#/join">Join</a>
+                    <a href="#/login">Login</a>
+                </li>
+                <li class="page-scroll" ng-hide="logedIn">
+                    <a href="#/register">Register</a>
                 </li>
                 <li class="page-scroll" ng-show="logedIn">
                     <a href="#/chat">Chat</a>
@@ -102,7 +105,7 @@
         </div>
         <div class="row">
             <div class="col-lg-10 col-lg-offset-2">
-                <p>An easy way to chat with whoever interested in Angular. Just join and get connected!</p>
+                <p>An easy way to chat with whoever interested in Angular. Just register or login and get connected!</p>
             </div>
         </div>
     </div>
@@ -151,9 +154,11 @@
 <script src="main/filter.js"></script>
 <script src="main/services.js"></script>
 
-<script src="join/join.js"></script>
+<script src="login/login.js"></script>
 <script src="chat/chat.js"></script>
 <script src="chat/chat_directives.js"></script>
+
+<script src="register/register.js"></script>
 
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

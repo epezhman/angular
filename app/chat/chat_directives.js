@@ -1,7 +1,7 @@
 'use strict';
 
 
-chatModule.directive('messageSent', function (joinService) {
+chatModule.directive('messageSent', function (loginService) {
     return {
         restrict: 'E',
         replace: true,
@@ -14,11 +14,11 @@ chatModule.directive('messageSent', function (joinService) {
         controller: function($scope)
         {
             $scope.getGravatarUrl = function (email) {
-                return joinService.buildGravatarUrl(email);
+                return loginService.buildGravatarUrl(email);
             }
         }
     }
-}).directive('messageReceived', function (joinService) {
+}).directive('messageReceived', function (loginService) {
     return {
         restrict: 'E',
         replace: true,
@@ -29,7 +29,7 @@ chatModule.directive('messageSent', function (joinService) {
         controller: function($scope)
         {
             $scope.getGravatarUrl = function (email) {
-                return joinService.buildGravatarUrl(email);
+                return loginService.buildGravatarUrl(email);
             }
         }
     }

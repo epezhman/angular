@@ -1,20 +1,25 @@
 'use strict';
 
-chatApp.factory('joinService', function ($cookieStore, $location) {
+chatApp.factory('loginService', function ($cookieStore, $location) {
     return {
-        joinInfo: {
+        loginInfo: {
             'name': '',
-            'email': ''
+            'email': '',
+            'password': ''
         },
 
-        joinChat: function (joinInfo) {
-            $cookieStore.put('user', joinInfo);
+        loginChat: function (loginInfo) {
+            $cookieStore.put('user', loginInfo);
             $location.url('/chat');
         },
 
         leaveChat: function () {
             $cookieStore.remove('user');
-            $location.url('/join');
+            $location.url('/login');
+        },
+
+        register: function() {
+            $location.url('/register');
         },
 
         getUser: function () {
@@ -29,10 +34,10 @@ chatApp.factory('joinService', function ($cookieStore, $location) {
         },
 
         checkedLoggedIn: function () {
-            if ($cookieStore.get('user') == null)
-                $location.url('/join');
+            /*if ($cookieStore.get('user') == null)
+                $location.url('/login');
             else
-                $location.url('/chat');
+                $location.url('/chat');*/
         },
 
         buildGravatarUrl: function (email) {
