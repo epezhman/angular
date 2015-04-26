@@ -20,6 +20,17 @@
 
                             <p class="help-block text-danger"></p>
                         </div>
+
+                    </div>
+
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Username</label>
+                            <input type="text" class="form-control"
+                                   placeholder="Choose a username" id="username" required
+                                   ng-model="ctrl.register.username">
+                        </div>
+
                     </div>
 
                     <div class="row control-group">
@@ -48,16 +59,16 @@
                         <div class="form-group col-xs-12">
                             <button type="submit" class="btn btn-success btn-lg"
                                     ng-disabled="registerForm.$invalid"
-                                    ng-click="ctrl.loginChat(ctrl.register, registerForm)">Register
+                                    ng-click="ctrl.createUser()">Register
                             </button>
                         </div>
                     </div>
                 </form>
             </div>
-           <!-- <div class="col-sm-2">
-                <img ng-src="{{ctrl.getGravatarUrl(ctrl.loginInfo.email)}}" class="img-responsive img-circle"
+            <div class="col-sm-2">
+                <img ng-src="{{ctrl.getGravatarUrl(ctrl.register.email)}}" class="img-responsive img-circle"
                      style="margin-left:60px ">
-            </div>-->
+            </div>
         </div>
     </div>
 </section>

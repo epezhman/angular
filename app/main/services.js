@@ -1,6 +1,18 @@
 'use strict';
 
-chatApp.factory('loginService', function ($cookieStore, $location) {
+chatApp.factory('loginService', function ($cookieStore, $location, $firebaseAuth) {
+    var ref = new Firebase("https://rostlab-angular-chat.firebaseio.com/");
+    var auth = $firebaseAuth(ref);
+
+    auth.$onAuth(function(authData) {
+        if (authData) {
+            console.log("User " + authData.uid + " is logged in with " + authData.provider);
+            $location.url('/chat');
+        } else {
+            console.log("User is logged out");
+        }
+    });
+
     return {
         loginInfo: {
             'name': '',
@@ -9,12 +21,22 @@ chatApp.factory('loginService', function ($cookieStore, $location) {
         },
 
         loginChat: function (loginInfo) {
-            $cookieStore.put('user', loginInfo);
-            $location.url('/chat');
+            auth.$authWithPassword({
+                email    : loginInfo.email,
+                password : loginInfo.password
+            }).then(function(authData) {
+                console.log("Logged in as:", authData.uid);
+            }).catch(function(error) {
+                console.log("Authentication failed:", error);
+                alert('Login failed: ' + error);
+            });
         },
 
-        leaveChat: function () {
-            $cookieStore.remove('user');
+        logoutChat: function () {
+            auth.$unauth(function(){
+                console.log('user logged out');
+            });
+
             $location.url('/login');
         },
 
@@ -23,21 +45,30 @@ chatApp.factory('loginService', function ($cookieStore, $location) {
         },
 
         getUser: function () {
-            return $cookieStore.get('user');
+            var authData = auth.$getAuth();
+            if (authData) {
+                console.log("User " + authData.uid + " is logged in with " + authData.provider);
+            } else {
+                console.log("User is logged out");
+            }
+            return authData;
+        },
+
+        isLoggedIn: function() {
+            var authData = auth.$getAuth();
+            return authData != null;
         },
 
         watcher: function () {
-            if ($cookieStore.get('user') == null)
-                return 0;
-            else
+           if (auth.$getAuth())
                 return 1;
+            else
+                return 0;
         },
 
         checkedLoggedIn: function () {
-            /*if ($cookieStore.get('user') == null)
-                $location.url('/login');
-            else
-                $location.url('/chat');*/
+            if (auth.$getAuth() !== null)
+                $location.url('/chat');
         },
 
         buildGravatarUrl: function (email) {

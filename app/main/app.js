@@ -6,16 +6,17 @@ var chatApp = angular.module('chatApp', [
     'chatApp.login',
     'chatApp.register',
     'chatApp.chat',
-    'ngCookies'
+    'ngCookies',
+    'firebase'
 ])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.otherwise({redirectTo: '/login'});
     }])
     .controller('appController', ['$scope', '$cookieStore', 'loginService', function ($scope, $cookieStore, loginService) {
-        $scope.logedIn = loginService.getUser();
+        $scope.logedIn = loginService.isLoggedIn();
 
         $scope.logOut = function () {
-            loginService.leaveChat();
+            loginService.logoutChat();
             $scope.logedIn = false;
         }
 
