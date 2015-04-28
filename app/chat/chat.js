@@ -20,7 +20,6 @@ var chatModule = angular.module('chatApp.chat', ['ngRoute', 'firebase'])
         vm.newMessage = {name: '', email: '', message: '', create_datetime: '', edited:false};
         vm.messages = MessageService.getMessages();
         vm.sortoder = '-create_datetime';
-        debugger;
         var user = loginService.getUser();
         vm.currentEmail = user.password.email;
 
