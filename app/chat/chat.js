@@ -25,7 +25,6 @@ var chatModule = angular.module('chatApp.chat', ['ngRoute', 'firebase'])
 
         vm.addMessage = function (chatMessageForm) {
             if (chatMessageForm.$valid) {
-                debugger;
                 vm.newMessage.email = vm.currentEmail;
                 vm.newMessage.name = vm.currentEmail;
                 MessageService.addMessage(angular.copy(vm.newMessage));
