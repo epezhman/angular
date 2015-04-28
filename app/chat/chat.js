@@ -27,7 +27,7 @@ var chatModule = angular.module('chatApp.chat', ['ngRoute', 'firebase'])
             if (chatMessageForm.$valid) {
                 debugger;
                 vm.newMessage.email = vm.currentEmail;
-                vm.newMessage.name = 'asd';
+                vm.newMessage.name = vm.currentEmail;
                 MessageService.addMessage(angular.copy(vm.newMessage));
                 vm.newMessage = {name: '', email: '', message: '', create_datetime: '', edited:false};
                 chatMessageForm.$setPristine();
