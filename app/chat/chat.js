@@ -20,13 +20,15 @@ var chatModule = angular.module('chatApp.chat', ['ngRoute', 'firebase'])
         vm.newMessage = {name: '', email: '', message: '', create_datetime: '', edited:false};
         vm.messages = MessageService.getMessages();
         vm.sortoder = '-create_datetime';
+        debugger;
         var user = loginService.getUser();
         vm.currentEmail = user.password.email;
 
         vm.addMessage = function (chatMessageForm) {
             if (chatMessageForm.$valid) {
-                vm.newMessage.email = user.password.email;
-                vm.newMessage.name = user.password.email;
+                debugger;
+                vm.newMessage.email = vm.currentEmail;
+                vm.newMessage.name = 'asd';
                 MessageService.addMessage(angular.copy(vm.newMessage));
                 vm.newMessage = {name: '', email: '', message: '', create_datetime: '', edited:false};
                 chatMessageForm.$setPristine();
